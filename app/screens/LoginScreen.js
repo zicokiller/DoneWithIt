@@ -3,17 +3,17 @@ import { StyleSheet, Image } from "react-native";
 import { Formik } from "formik";
 import * as Yup from "yup";
 
-import Screen from "../components/Screen";
-import AppText from "../components/AppText";
-import AppTextInput from "../components/AppTextInput";
 import AppButton from "../components/AppButton";
+import AppTextInput from "../components/AppTextInput";
+import ErrorMessage from "../components/ErrorMessage";
+import Screen from "../components/Screen";
 
 // I use Yup library for validation forms and
 //Formik library to quickly pick and set input fields values
 
 const validationSchema = Yup.object().shape({
-    email: Yup.string().required().email().label("Email"),
-    password: Yup.string().required().min(4).max(8).label("Password"),
+  email: Yup.string().required().email().label("Email"),
+  password: Yup.string().required().min(4).max(8).label("Password"),
 });
 
 function LoginScreen(props) {
@@ -37,7 +37,7 @@ function LoginScreen(props) {
               placeholder="Email"
               textContentType="emailAddress"
             />
-            <AppText style={{color: "red"}}>{errors.email}</AppText>
+            <ErrorMessage error={errors.email} />
             <AppTextInput
               autoCapitalize="none"
               autoCorrect={false}
@@ -47,7 +47,7 @@ function LoginScreen(props) {
               placeholder="Password"
               textContentType="password"
             />
-            <AppText style={{color: "red"}}>{errors.password}</AppText>
+            <ErrorMessage error={errors.password} />
 
             <AppButton title="Login" onPress={handleSubmit} />
           </>
