@@ -15,7 +15,7 @@ import PickerItem from "./PickerItem";
 
 import defaultStyles from "../config/styles";
 
-function AppPicker({ icon, items, placeholder }) {
+function AppPicker({ icon, items, onSelectItem, placeholder, selectedItem }) {
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <React.Fragment>
@@ -29,7 +29,9 @@ function AppPicker({ icon, items, placeholder }) {
               style={styles.icon}
             />
           )}
-          <AppText style={styles.text}>{placeholder}</AppText>
+          <AppText style={styles.text}>
+            {selectedItem ? selectedItem.label : placeholder}
+          </AppText>
           <MaterialCommunityIcons
             name="chevron-down"
             size={25}
@@ -46,7 +48,10 @@ function AppPicker({ icon, items, placeholder }) {
             renderItem={({ item }) => (
               <PickerItem
                 label={item.label}
-                onPress={() => console.log(item)}
+                onPress={() => {
+                  setModalVisible(false);
+                  onSelectItem(item);
+                }}
               />
             )}
           />
