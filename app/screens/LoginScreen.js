@@ -3,8 +3,9 @@ import { StyleSheet, Image } from "react-native";
 import { Formik } from "formik";
 import * as Yup from "yup";
 
-import AppButton from "../components/AppButton";
+//import AppButton from "../components/AppButton";
 import AppFormField from "../components/AppFormField";
+import SubmitButton from "../components/SubmitButton";
 import Screen from "../components/Screen";
 
 // I use Yup library for validation forms and
@@ -25,7 +26,7 @@ function LoginScreen(props) {
         onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}
       >
-        {({ handleChange, handleSubmit, errors, setFieldTouched, touched }) => (
+        {() => (
           <>
             <AppFormField
               autoCapitalize="none"
@@ -46,7 +47,7 @@ function LoginScreen(props) {
               textContentType="password"
             />
 
-            <AppButton title="Login" onPress={handleSubmit} />
+            <SubmitButton title="Login" />
           </>
         )}
       </Formik>
