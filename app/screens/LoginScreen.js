@@ -1,13 +1,11 @@
 import React from "react";
 import { StyleSheet, Image } from "react-native";
-import { Formik } from "formik";
 import * as Yup from "yup";
 
 //import AppButton from "../components/AppButton";
-import AppFormField from "../components/AppFormField";
-import SubmitButton from "../components/SubmitButton";
 import Screen from "../components/Screen";
-import AppForm from "../components/AppForm";
+import { AppForm, AppFormField, SubmitButton} from "../components/forms";
+
 
 // I use Yup library for validation forms and
 //Formik library to quickly pick and set input fields values
