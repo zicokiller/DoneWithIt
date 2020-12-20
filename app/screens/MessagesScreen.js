@@ -10,8 +10,8 @@ import Screen from "../components/Screen";
 const initialMessages = [
   {
     id: 1,
-    title: "T1",
-    description: "D1",
+    title: "Je suis un titre qui va etre truncate au bout de une ligne",
+    description: "Je suis un titre qui va etre truncate au bout de une ligneJe suis un titre qui va etre truncate au bout de une ligne",
     image: require("../assets/17.jpg"),
   },
   {
@@ -20,12 +20,12 @@ const initialMessages = [
     description: "D2",
     image: require("../assets/17.jpg"),
   },
-  // {
-  //   id: 3,
-  //   title: "T3",
-  //   description: "D3",
-  //   image: require("../assets/37.jpg"),
-  // },
+  {
+    id: 3,
+    title: "T3",
+    description: "D3",
+    image: require("../assets/17.jpg"),
+  }
 ];
 
 function MessagesScreen(props) {
