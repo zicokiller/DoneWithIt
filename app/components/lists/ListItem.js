@@ -8,8 +8,8 @@ import {
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import {Swipeable} from "react-native-gesture-handler";
 
-import colors from "../config/colors";
-import AppText from "./AppText";
+import colors from "../../config/colors";
+import AppText from "../AppText";
 
 
 export default function ListItem({ title, subTitle, image, IconComponent, onPress, renderRightActions }) {

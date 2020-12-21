@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 import { FlatList, StyleSheet, View } from "react-native";
 
-import ListItem from "../components/ListItem";
-import ListItemSeparator from "../components/ListItemSeparator";
-import ListItemDeleteAction from "../components/ListItemDeleteAction";
+import {
+  ListItem,
+  ListItemSeparator,
+  ListItemDeleteAction,
+} from "../components/lists";
 import Screen from "../components/Screen";
-
 
 const initialMessages = [
   {
     id: 1,
     title: "Je suis un titre qui va etre truncate au bout de une ligne",
-    description: "Je suis un titre qui va etre truncate au bout de une ligneJe suis un titre qui va etre truncate au bout de une ligne",
+    description:
+      "Je suis un titre qui va etre truncate au bout de une ligneJe suis un titre qui va etre truncate au bout de une ligne",
     image: require("../assets/17.jpg"),
   },
   {
@@ -25,7 +27,7 @@ const initialMessages = [
     title: "T3",
     description: "D3",
     image: require("../assets/17.jpg"),
-  }
+  },
 ];
 
 function MessagesScreen(props) {
@@ -35,8 +37,8 @@ function MessagesScreen(props) {
   // Create function to delete message
   const handleDelete = (message) => {
     // Delete the message from messages
-      setMessages(messages.filter(m => m.id != message.id)); // Return a new messages array
-      
+    setMessages(messages.filter((m) => m.id != message.id)); // Return a new messages array
+
     // Call the server...
   };
   return (
@@ -65,7 +67,7 @@ function MessagesScreen(props) {
               description: "D2",
               image: require("../assets/17.jpg"),
             },
-          ])
+          ]);
         }}
       />
     </Screen>
