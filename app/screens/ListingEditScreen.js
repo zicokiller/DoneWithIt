@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Image } from "react-native";
+import { StyleSheet, Image, View } from "react-native";
 import * as Yup from "yup";
 
 import Screen from "../components/Screen";
@@ -33,13 +33,19 @@ function ListingEditScreen(props) {
         validationSchema={validationSchema}
       >
         <AppFormField maxLenght={255} name="title" placeholder="Title" />
-        <AppFormField
-          keyboardType="numeric"
-          maxLenght={8}
-          name="price"
-          placeholder="Price"
-        />
-        <AppFormPicker items={categories} name="category" placeholder="Category" />
+          <AppFormField
+            keyboardType="numeric"
+            maxLenght={8}
+            name="price"
+            placeholder="Price"
+            width={120}
+          />
+          <AppFormPicker
+            items={categories}
+            name="category"
+            placeholder="Category"
+            width="50%"
+          />
 
         <AppFormField
           maxLenght={255}
