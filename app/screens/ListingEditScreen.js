@@ -10,12 +10,14 @@ import {
   SubmitButton,
 } from "../components/forms";
 import CategoryPickerItem from "../components/CategoryPickerItem";
+import FormImagePicker from "../components/FormImagePicker";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
   price: Yup.number().required().min(1).max(10000).label("Price"),
   description: Yup.string().required().label("Description"),
   category: Yup.object().required().nullable().label("Category"),
+  images: Yup.array().min(1, "Please select at least one image"),
 });
 
 const categories = [
@@ -75,32 +77,32 @@ const categories = [
   },
 ];
 
-
 function ListingEditScreen(props) {
   return (
     <Screen style={styles.container}>
       <Image style={styles.logo} source={require("../assets/logo-red.png")} />
       <AppForm
-        initialValues={{ title: "", price: "", description: "", category: "" }}
+        initialValues={{ title: "", price: "", description: "", category: null, images: [] }}
         onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}
       >
+        <FormImagePicker name="images" />
         <AppFormField maxLenght={255} name="title" placeholder="Title" />
-          <AppFormField
-            keyboardType="numeric"
-            maxLenght={8}
-            name="price"
-            placeholder="Price"
-            width={120}
-          />
-          <AppFormPicker
-            items={categories}
-            name="category"
-            numberOfColumns={3}
-            placeholder="Category"
-            PickerItemComponent={CategoryPickerItem}
-            width="50%"
-          />
+        <AppFormField
+          keyboardType="numeric"
+          maxLenght={8}
+          name="price"
+          placeholder="Price"
+          width={120}
+        />
+        <AppFormPicker
+          items={categories}
+          name="category"
+          numberOfColumns={3}
+          placeholder="Category"
+          PickerItemComponent={CategoryPickerItem}
+          width="50%"
+        />
 
         <AppFormField
           maxLenght={255}
